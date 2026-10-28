@@ -1,0 +1,24 @@
+.public-note {
+  margin: -8px 0 0;
+  padding: 12px;
+  border-left: 3px solid #e3b65a;
+  color: #d7e1df;
+  background: #2a383d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.public-inline-note {
+  margin: 8px 0 18px;
+  color: #66727d;
+  font-size: 13px;
+}
+@media print {
+  @page { size: A4; margin: 18mm; }
+  body { background: #fff; }
+  #homeView, .sidebar, .topbar, .section-heading, .subheading, .review-stats, #reviewList, .voyage-report-actions, .voyage-report-status { display: none !important; }
+  #appView { display: block !important; min-height: 0; }
+  .workspace { padding: 0; }
+  .panel { display: none !important; }
+  #reviewPanel { display: block !important; padding: 0; }
+  .voyage-report { border: 0; box-shadow: none; }
+}

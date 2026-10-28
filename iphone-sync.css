@@ -1,0 +1,72 @@
+.iphone-sync-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: #e8f1f8;
+  border: 1px solid #cddde8;
+  border-radius: 6px;
+}
+
+.iphone-sync-bar span {
+  display: block;
+  color: #39718f;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.iphone-sync-bar strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.iphone-sync-bar p {
+  margin: 4px 0 0;
+  color: #526a78;
+  font-size: 12px;
+}
+
+.iphone-setup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 0;
+}
+
+.iphone-setup[hidden] {
+  display: none;
+}
+
+.iphone-setup label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.iphone-setup label > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 7px;
+}
+
+.copy-field {
+  padding: 8px 12px;
+}
+
+@media (max-width: 620px) {
+  .iphone-sync-bar {
+    align-items: flex-start;
+  }
+
+  .iphone-setup {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,199 @@
+.voyage-report {
+  margin-bottom: 30px;
+  padding: 24px 0 28px;
+  border-top: 2px solid #17212b;
+  border-bottom: 1px solid #cbd1cd;
+}
+
+.voyage-report > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.voyage-report > header span,
+.voyage-report > header strong {
+  display: block;
+}
+
+.voyage-report > header span {
+  margin-bottom: 5px;
+  color: #287565;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.voyage-report > header strong {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 22px;
+}
+
+.voyage-report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.voyage-report-actions .secondary-button {
+  color: #287565;
+  background: transparent;
+  border: 1px solid #93aaa3;
+}
+
+.voyage-report-status {
+  margin: 12px 0 22px;
+  color: #66727d;
+  font-size: 12px;
+}
+
+.voyage-report-brand {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 18px;
+  margin: 4px 0 22px;
+  padding: 16px 18px;
+  color: #fff;
+  background: #17212b;
+  border-left: 4px solid #e3b65a;
+}
+
+.voyage-report-brand span {
+  grid-row: 1 / 3;
+  align-self: center;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.voyage-report-brand em,
+.voyage-report-brand strong {
+  font-size: 11px;
+}
+
+.voyage-report-brand em {
+  color: #e3b65a;
+  font-family: Georgia, serif;
+}
+
+.voyage-report-title {
+  margin: 0 0 10px;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 32px;
+  line-height: 1.25;
+}
+
+.voyage-report-summary {
+  max-width: 850px;
+  margin: 0;
+  color: #38464d;
+  line-height: 1.8;
+}
+
+.voyage-report-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 24px 0;
+  border-top: 1px solid #d9ddd9;
+  border-bottom: 1px solid #d9ddd9;
+}
+
+.voyage-report-metrics div {
+  padding: 16px 18px;
+  border-left: 1px solid #d9ddd9;
+}
+
+.voyage-report-metrics div:first-child {
+  border-left: 0;
+}
+
+.voyage-report-metrics span,
+.voyage-report-metrics strong {
+  display: block;
+}
+
+.voyage-report-metrics span {
+  color: #66727d;
+  font-size: 11px;
+}
+
+.voyage-report-metrics strong {
+  margin-top: 6px;
+  font-size: 23px;
+}
+
+.voyage-report-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 36px;
+}
+
+.voyage-report-details section {
+  min-width: 0;
+}
+
+.voyage-report-details h5 {
+  margin: 0 0 8px;
+  font-size: 12px;
+}
+
+.voyage-report-details p {
+  margin: 0;
+  color: #526068;
+  line-height: 1.65;
+}
+
+.voyage-schedule-line {
+  padding: 7px 0;
+  border-bottom: 1px solid #e1e4e1;
+  color: #526068;
+  font-size: 13px;
+}
+
+.voyage-schedule-line b {
+  display: inline-block;
+  min-width: 52px;
+  color: #17212b;
+}
+
+@media (max-width: 620px) {
+  .voyage-report > header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .voyage-report-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .voyage-report-title {
+    font-size: 26px;
+  }
+
+  .voyage-report-brand {
+    grid-template-columns: 1fr;
+  }
+
+  .voyage-report-brand span {
+    grid-row: auto;
+  }
+
+  .voyage-report-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .voyage-report-metrics div:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid #d9ddd9;
+  }
+
+  .voyage-report-metrics div:nth-child(4) {
+    border-top: 1px solid #d9ddd9;
+  }
+
+  .voyage-report-details {
+    grid-template-columns: 1fr;
+  }
+}

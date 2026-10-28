@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcade的航海星球</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="music-detail.css">
+  <link rel="stylesheet" href="diary.css">
+  <link rel="stylesheet" href="iphone-sync.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="voyage-report.css">
+  <link rel="stylesheet" href="public.css">
+</head>
+<body>
+  <div id="homeView" class="home-view">
+    <section class="home-hero" aria-label="Arcade的航海星球首页">
+      <div id="homeBackgroundA" class="home-background active"></div>
+      <div id="homeBackgroundB" class="home-background"></div>
+      <div class="home-shade"></div>
+      <header class="home-header"><strong>ARCADE'S PLANET · 公开演示</strong><button id="openAppTop" class="home-header-action" type="button">进入记录</button></header>
+      <div class="home-copy">
+        <p>PERSONAL ORBIT · DAILY LOG</p>
+        <h1>Arcade的航海星球</h1>
+        <blockquote><span>Per aspera ad astra</span><strong>循此苦旅 以达繁星</strong></blockquote>
+        <button id="openApp" class="home-primary-action" type="button">开始今日航行</button>
+      </div>
+      <div class="home-carousel" aria-label="首页背景控制">
+        <button id="previousHomeBackground" type="button" aria-label="上一张背景" title="上一张背景">‹</button>
+        <button id="toggleHomeRotation" type="button" aria-label="暂停背景轮播" title="暂停背景轮播">Ⅱ</button>
+        <button id="nextHomeBackground" type="button" aria-label="下一张背景" title="下一张背景">›</button>
+        <span id="homeBackgroundName">正在加载航行背景…</span>
+      </div>
+      <div class="home-scroll-cue" aria-hidden="true">今日坐标 ↓</div>
+    </section>
+    <section class="home-overview" aria-label="今日轨迹概览">
+      <div><p>TODAY'S COORDINATES</p><h2 id="homeTodayDate"></h2></div>
+      <div class="home-metric"><span>日程</span><strong id="homeScheduleCount">0</strong></div>
+      <div class="home-metric"><span>播放</span><strong id="homeMusicCount">0</strong></div>
+      <div class="home-metric"><span>日记</span><strong id="homeDiaryCount">0</strong></div>
+      <button id="openTodayLog" type="button">打开今日日志</button>
+    </section>
+  </div>
+
+  <main id="appView" class="app-shell" hidden>
+    <aside class="sidebar">
+      <div class="brand-mark">星</div>
+      <div>
+        <h1>Arcade的航海星球</h1>
+        <p>日程、品味、三餐和想法，都留在同一天里。</p>
+      </div>
+      <button id="backHome" class="back-home" type="button">返回首页</button>
+      <p class="public-note">公开演示 · 示例数据可编辑，修改仅保存在当前浏览器</p>
+      <label class="date-field">记录日期<input id="selectedDate" type="date"></label>
+      <div class="completion"><span>今日完整度</span><strong id="completionText">0%</strong><div><i id="completionBar"></i></div></div>
+      <nav aria-label="记录类型">
+        <button class="nav-button active" data-panel="schedulePanel">日程</button>
+        <button class="nav-button" data-panel="musicPanel">听歌</button>
+        <button class="nav-button" data-panel="mealsPanel">三餐</button>
+        <button class="nav-button" data-panel="diaryPanel">日记</button>
+        <button class="nav-button" data-panel="reviewPanel">航海报告</button>
+      </nav>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <div><p class="eyebrow">LIFE LOG</p><h2 id="dayTitle"></h2></div>
+        <div class="day-controls">
+          <label>心情<select id="moodSelect"><option value="">未选择</option><option>平静</option><option>开心</option><option>疲惫</option><option>焦虑</option><option>专注</option></select></label>
+          <label>能量<input id="energyRange" type="range" min="1" max="10" value="6"><b id="energyValue">6</b></label>
+        </div>
+      </header>
+
+      <section id="schedulePanel" class="panel active">
+        <div class="section-heading"><div><p class="eyebrow">SCHEDULE</p><h3>今天发生了什么</h3></div></div>
+        <form id="scheduleForm" class="entry-row">
+          <input id="scheduleTime" type="time" required>
+          <input id="scheduleTitle" type="text" placeholder="事项，例如：和朋友吃饭" required>
+          <select id="scheduleType"><option>生活</option><option>工作</option><option>学习</option><option>运动</option><option>专注</option></select>
+          <button type="submit">添加日程</button>
+        </form>
+        <p class="public-inline-note">本机版本可自动同步番茄 ToDo；此处展示交互演示。</p>
+        <div id="scheduleList" class="list"></div>
+      </section>
+
+      <section id="musicPanel" class="panel">
+        <div class="section-heading"><div><p class="eyebrow">MUSIC LOG</p><h3>每日听歌画像</h3></div></div>
+        <p id="musicSyncResult" class="status">演示数据 · 本机版本可自动同步网易云播放记录</p>
+        <div class="stats-grid">
+          <div><span>今日播放</span><strong id="todayPlayCount">0</strong></div>
+          <div><span>不重复歌曲</span><strong id="uniqueSongCount">0</strong></div>
+          <div><span>重复播放</span><strong id="repeatPlayCount">0</strong></div>
+          <div><span>歌手数量</span><strong id="todayArtistCount">0</strong></div>
+        </div>
+        <div class="insights">
+          <div><span>今日常听歌手</span><strong id="topArtist">暂无</strong></div>
+          <div><span>今日听歌心情</span><strong id="musicMoodSummary">等待记录</strong></div>
+          <div><span>循环歌曲</span><strong id="topSong">暂无</strong></div>
+          <div><span>活跃时段</span><strong id="peakListenTime">暂无</strong></div>
+        </div>
+        <p id="musicTasteNarrative" class="narrative"></p>
+        <div id="musicTasteTags" class="tags"></div>
+        <div id="topSongSpotlight" class="top-song-spotlight" hidden></div>
+        <div class="subheading"><h4>今日歌曲 · 按播放次数排序</h4></div>
+        <div id="musicList" class="music-list"></div>
+      </section>
+
+      <section id="mealsPanel" class="panel">
+        <div class="section-heading"><div><p class="eyebrow">MEALS</p><h3>一日三餐</h3></div></div>
+        <div class="meal-grid"><label>早餐<textarea id="breakfast"></textarea></label><label>午餐<textarea id="lunch"></textarea></label><label>晚餐<textarea id="dinner"></textarea></label></div>
+        <label>饮食备注<textarea id="mealNotes"></textarea></label><button id="saveMeals">保存三餐</button>
+      </section>
+
+      <section id="diaryPanel" class="panel">
+        <div class="section-heading"><div><p class="eyebrow">DIARY</p><h3>今天想记住的事</h3></div><button id="toggleDiaryExtras" class="add-options" type="button" aria-expanded="false" title="增加日记内容">+ 增加</button></div>
+        <p class="public-inline-note">本机版本可自动同步一本日记；公开版中的文字只保存在当前浏览器。</p>
+        <div class="diary-editor">
+          <div id="diaryExtras" class="diary-extras" hidden>
+            <label>心情<select id="diaryMood"><option value="">未选择</option><option>平静</option><option>开心</option><option>感动</option><option>期待</option><option>疲惫</option><option>焦虑</option><option>低落</option></select></label>
+            <label>标签<input id="diaryTags" type="text" maxlength="120" placeholder="例如：生活, 灵感, 朋友"></label>
+            <label class="opacity-control">背景透明度 <output id="diaryBackgroundOpacityValue">78%</output><input id="diaryBackgroundOpacity" type="range" min="60" max="90" step="1" value="78"></label>
+            <label class="file-option">增加照片<input id="diaryPhotos" type="file" multiple></label>
+            <button id="nextDiaryBackground" class="secondary-button" type="button">换一张背景</button>
+            <label class="file-option">导入自定义背景<input id="diaryBackground" type="file"></label>
+            <button id="removeDiaryBackground" class="secondary-button" type="button">关闭背景</button>
+            <p id="diaryMediaStatus" class="diary-media-status"></p><p class="diary-import-hint">也可将照片拖到下方写作区，或复制照片后在写作区按 Command+V 设为背景。</p>
+          </div>
+          <div id="diaryCanvas" class="diary-canvas"><div class="background-drop-label">拖入或粘贴照片可更换背景</div><textarea id="diaryBody" maxlength="20000" placeholder="写下此刻在意的事、一个想法，或今天的心情…"></textarea></div>
+          <div id="diaryPhotoGallery" class="diary-photo-gallery"></div>
+          <div class="diary-footer"><span id="diaryWordCount">0 字</span><span id="diarySaveStatus">尚未保存</span><button id="saveDiary" type="button">保存日记</button></div>
+        </div>
+      </section>
+
+      <section id="reviewPanel" class="panel">
+        <div class="section-heading"><div><p class="eyebrow">CAPTAIN'S LOG</p><h3>每日航海报告</h3></div><button id="exportData">导出我的演示数据</button></div>
+        <section class="voyage-report" aria-live="polite">
+          <header><div><span>DAILY VOYAGE REPORT</span><strong id="voyageReportDate">等待生成</strong></div><div class="voyage-report-actions"><button id="exportVoyagePdf" class="secondary-button" type="button">打印 / 保存 PDF</button><button id="exportVoyageWord" class="secondary-button" type="button">导出 Word</button><button id="generateVoyageReport" type="button">重新生成</button></div></header>
+          <p id="voyageReportStatus" class="voyage-report-status">公开演示 · 按当前浏览器中的记录生成</p>
+          <div id="voyageReportBody" class="voyage-report-body"><div class="empty">当天的航海报告将在 24:00 自动生成</div></div>
+        </section>
+        <div class="subheading"><h4>航行总览</h4></div>
+        <div class="stats-grid review-stats"><div><span>记录天数</span><strong id="daysCount">0</strong></div><div><span>日程数</span><strong id="scheduleCount">0</strong></div><div><span>听歌次数</span><strong id="musicCount">0</strong></div></div>
+        <div class="subheading"><h4>历史轨迹</h4></div>
+        <div id="reviewList" class="list"></div>
+      </section>
+    </section>
+  </main>
+  <script src="public-app.js"></script>
+</body>
+</html>

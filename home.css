@@ -1,0 +1,303 @@
+[hidden] {
+  display: none !important;
+}
+
+.home-view {
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #eef0ec;
+}
+
+.home-hero {
+  position: relative;
+  min-height: 82svh;
+  overflow: hidden;
+  color: #fff;
+  background: #17212b;
+}
+
+.home-background,
+.home-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.home-background {
+  opacity: 0;
+  background-position: center;
+  background-size: cover;
+  transition: opacity 1.1s ease;
+}
+
+.home-background.active {
+  opacity: 1;
+}
+
+.home-shade {
+  background: rgba(8, 15, 18, .42);
+}
+
+.home-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 4vw;
+  border-bottom: 1px solid rgba(255, 255, 255, .24);
+}
+
+.home-header strong {
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.home-header-action {
+  color: #fff;
+  background: rgba(20, 30, 34, .38);
+  border: 1px solid rgba(255, 255, 255, .55);
+}
+
+.home-copy {
+  position: relative;
+  z-index: 2;
+  width: min(900px, 88vw);
+  padding: 11vh 4vw 150px;
+}
+
+.home-copy > p {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.home-copy h1 {
+  max-width: 850px;
+  margin: 0;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 64px;
+  line-height: 1.12;
+  font-weight: 700;
+  text-shadow: 0 2px 22px rgba(0, 0, 0, .3);
+}
+
+.home-copy blockquote {
+  margin: 28px 0 32px;
+  padding-left: 18px;
+  border-left: 3px solid #e3b65a;
+}
+
+.home-copy blockquote span,
+.home-copy blockquote strong {
+  display: block;
+}
+
+.home-copy blockquote span {
+  font-family: Georgia, serif;
+  font-size: 22px;
+}
+
+.home-copy blockquote strong {
+  margin-top: 7px;
+  font-size: 14px;
+}
+
+.home-primary-action {
+  padding: 13px 19px;
+  color: #17212b;
+  background: #e3b65a;
+}
+
+.home-carousel {
+  position: absolute;
+  z-index: 3;
+  right: 4vw;
+  bottom: 34px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.home-carousel button {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  color: #fff;
+  background: rgba(10, 18, 21, .52);
+  border: 1px solid rgba(255, 255, 255, .4);
+  font-size: 22px;
+}
+
+.home-carousel span {
+  min-width: 100px;
+  margin-left: 5px;
+  color: rgba(255, 255, 255, .82);
+  font-size: 11px;
+}
+
+.home-scroll-cue {
+  position: absolute;
+  z-index: 2;
+  left: 4vw;
+  bottom: 36px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.home-overview {
+  min-height: 18svh;
+  display: grid;
+  grid-template-columns: minmax(250px, 2fr) repeat(3, minmax(90px, .55fr)) auto;
+  align-items: center;
+  gap: 0;
+  padding: 24px 4vw;
+  color: #17212b;
+  background: #eef0ec;
+}
+
+.home-overview > div {
+  min-width: 0;
+}
+
+.home-overview > div:first-child p {
+  margin: 0 0 4px;
+  color: #287565;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.home-overview h2 {
+  margin: 0;
+  font-size: 23px;
+}
+
+.home-metric {
+  padding: 6px 24px;
+  border-left: 1px solid #cbd1cd;
+}
+
+.home-metric span,
+.home-metric strong {
+  display: block;
+}
+
+.home-metric span {
+  color: #66727d;
+  font-size: 11px;
+}
+
+.home-metric strong {
+  margin-top: 4px;
+  font-size: 25px;
+}
+
+.back-home {
+  width: 100%;
+  color: #d5ddde;
+  background: transparent;
+  border: 1px solid #45535a;
+}
+
+.sidebar h1 {
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+@media (max-width: 900px) {
+  .home-copy {
+    padding-top: 10vh;
+  }
+
+  .home-copy h1 {
+    font-size: 50px;
+  }
+
+  .home-overview {
+    grid-template-columns: 1fr repeat(3, 90px);
+  }
+
+  .home-overview > button {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .home-hero {
+    min-height: 82svh;
+  }
+
+  .home-header {
+    padding: 20px 18px;
+  }
+
+  .home-header-action {
+    display: none;
+  }
+
+  .home-copy {
+    width: 100%;
+    padding: 10vh 18px 145px;
+  }
+
+  .home-copy h1 {
+    max-width: 360px;
+    font-size: 42px;
+  }
+
+  .home-copy blockquote span {
+    font-size: 19px;
+  }
+
+  .home-carousel {
+    right: 18px;
+    bottom: 28px;
+  }
+
+  .home-carousel button {
+    display: none;
+  }
+
+  .home-carousel #nextHomeBackground {
+    display: block;
+  }
+
+  .home-carousel span {
+    display: none;
+  }
+
+  .home-scroll-cue {
+    left: 18px;
+    bottom: 30px;
+  }
+
+  .home-overview {
+    min-height: 18svh;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-content: center;
+    row-gap: 12px;
+    padding: 17px 18px;
+  }
+
+  .home-overview > div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .home-overview h2 {
+    font-size: 17px;
+  }
+
+  .home-metric {
+    padding: 4px 8px;
+    text-align: center;
+  }
+
+  .home-metric:nth-of-type(2) {
+    border-left: 0;
+  }
+
+  .home-metric strong {
+    font-size: 20px;
+  }
+}

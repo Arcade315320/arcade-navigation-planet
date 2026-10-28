@@ -1,0 +1,11 @@
+[
+  { "id": "sunset", "name": "晨曦日出", "file": "sunset.jpg", "credit": "Unsplash" },
+  { "id": "forest", "name": "林间小径", "file": "forest.jpg", "credit": "Unsplash" },
+  { "id": "mountain", "name": "山湖远方", "file": "mountain.jpg", "credit": "Unsplash" },
+  { "id": "desert-road", "name": "荒野公路", "file": "desert-road.jpg", "credit": "Unsplash" },
+  { "id": "ocean", "name": "宁静海面", "file": "ocean.jpg", "credit": "Unsplash" },
+  { "id": "stars", "name": "紫色星空", "file": "stars.jpg", "credit": "Unsplash" },
+  { "id": "night-sky", "name": "银河夜空", "file": "night-sky.jpg", "credit": "Unsplash" },
+  { "id": "mist-mountains", "name": "薄雾山峦", "file": "night-desert.jpg", "credit": "Unsplash" },
+  { "id": "nature", "name": "森林夕照", "file": "nature.jpg", "credit": "Unsplash" }
+]
